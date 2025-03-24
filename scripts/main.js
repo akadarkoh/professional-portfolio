@@ -88,3 +88,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Add this to your main.js file
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+// Function to set a theme
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
+// Function to toggle between themes
+function switchTheme(e) {
+  if (e.target.checked) {
+    setTheme('dark');
+  } else {
+    setTheme('light');
+  }    
+}
+
+// Event listener for the theme switch
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+// Check for saved theme preference
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+  toggleSwitch.checked = true;
+  setTheme('dark');
+}

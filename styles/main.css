@@ -7,7 +7,30 @@
     --light-color: #f4f4f4;
     --text-color: #333;
     --transition: all 0.3s ease;
+
+    --primary-color: #4a6baf;
+    --secondary-color: #3a5699;
+    --accent-color: #5cdb95;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --transition: all 0.3s ease;
 }
+
+[data-theme="dark"] {
+    --primary-color: #6d8fd1;
+    --secondary-color: #5a76b9;
+    --accent-color: #7de3b5;
+    --dark-color: #f4f4f4;
+    --light-color: #222;
+    --text-color: #f4f4f4;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+}
+    
+
 
 * {
     margin: 0;
@@ -24,8 +47,100 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background: var(--light-color);
+
+    
+    /* background-color: var(--bg-color);
+    color: var(--text-color); */
+    transition: var(--transition);
+      
+      
+}
+/* Theme switch styles */
+.theme-switch-wrapper {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+}
+      
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+        position: relative;
+        width: 60px;
+}
+      
+.theme-switch input {
+    display: none;
+}
+      
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
 }
 
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+      
+      .slider.round {
+        border-radius: 34px;
+      }
+      
+      .slider.round:before {
+        border-radius: 50%;
+      }
+      
+      input:checked + .slider {
+        background-color: var(--primary-color);
+      }
+      
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      
+      .slider .fa-sun {
+        color: orange;
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        font-size: 18px;
+        transition: .4s;
+        opacity: 1;
+      }
+      
+      .slider .fa-moon {
+        color: #f1c40f;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        font-size: 18px;
+        transition: .4s;
+        opacity: 0;
+      }
+      
+      input:checked + .slider .fa-sun {
+        opacity: 0;
+      }
+      
+      input:checked + .slider .fa-moon {
+        opacity: 1;
+}
+
+
+      
 a {
     text-decoration: none;
     color: var(--primary-color);
@@ -79,7 +194,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     min-height: 10vh;
-    background: white;
+    background: var(--bg-color);
     padding: 0 5%;
     position: fixed;
     width: 100%;
@@ -101,7 +216,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--dark-color);
+    color: var(--text-color);
     transition: var(--transition);
 }
 
@@ -174,6 +289,10 @@ nav {
     padding: 0 20px;
 }
 
+.about, .projects {
+    background: var(--bg-color);
+}
+  
 .about-text {
     flex: 1;
     padding-right: 40px;
@@ -212,10 +331,10 @@ nav {
 }
 
 .skill-card {
-    background: white;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     width: 300px;
     text-align: center;
     transition: var(--transition);
@@ -244,6 +363,10 @@ nav {
     background: var(--primary-color);
 }
 
+.skills, .contact {
+    background: var(--light-color);
+}
+
 /* Projects Section */
 .projects {
     background: white;
@@ -259,7 +382,7 @@ nav {
 }
 
 .project-card {
-    background: var(--light-color);
+    background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -412,7 +535,7 @@ footer {
         right: 0;
         height: 90vh;
         top: 10vh;
-        background: white;
+        background: var(--bg-color);
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -6,6 +6,21 @@
     <title>Kofi Asante Ampim Darkoh - Portfolio</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add this to the <head> section of your index.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Add this just before your closing </body> tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+    // Initialize AOS
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+        });
+    });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -23,53 +38,63 @@
             <div class="line2"></div>
             <div class="line3"></div>
         </div>
+        <!-- Add this after your nav-links in the navigation section -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </div>
+            </label>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Kofi Asante Ampim Darkoh</span></h1>
-            <h2>Python Developer & Web Designer</h2>
-            <p>I build clean, responsive websites and powerful Python applications</p>
-            <a href="#projects" class="btn">View My Work</a>
+        <div class="hero-content" data-aos="fade-up">
+          <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+          <h2 data-aos="fade-up" data-aos-delay="200">Python Developer & Web Designer</h2>
+          <p data-aos="fade-up" data-aos-delay="400">I build clean, responsive websites and powerful Python applications</p>
+          <a href="#projects" class="btn" data-aos="fade-up" data-aos-delay="600">View My Work</a>
         </div>
     </section>
-
+    
     <!-- About Section -->
     <section id="about" class="about">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-aos="fade-down">About Me</h2>
         <div class="about-content">
-            <div class="about-text">
-                <p>Hello! I'm a passionate developer with experience in Python, HTML, and CSS. I enjoy creating efficient solutions and beautiful interfaces.</p>
-                <p>With a background in [your background], I bring a unique perspective to every project I work on.</p>
-                <a href="#contact" class="btn">Get In Touch</a>
-            </div>
-            <div class="about-image">
-                <!-- Replace with your image -->
-                <div class="profile-placeholder"></div>
-            </div>
+          <div class="about-text" data-aos="fade-right">
+            <!-- Your about text here -->
+            <p>Hello! I'm a passionate developer with experience in Python, HTML, and CSS. I enjoy creating efficient solutions and beautiful interfaces.</p>
+            <p>With a background in [your background], I bring a unique perspective to every project I work on.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+          </div>
+          <div class="about-image" data-aos="fade-left">
+            <!-- Your image here -->
+          </div>
         </div>
-    </section>
+      </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2 class="section-title">My Skills</h2>
         <div class="skills-container">
-            <div class="skill-card">
+            <div class="skill-card" data-aos="flip-up" data-aos-delay="0">
                 <i class="fab fa-html5"></i>
                 <h3>HTML</h3>
                 <div class="skill-bar">
                     <div class="skill-level" style="width: 90%"></div>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card" data-aos="flip-up" data-aos-delay="100">
                 <i class="fab fa-css3-alt"></i>
                 <h3>CSS</h3>
                 <div class="skill-bar">
                     <div class="skill-level" style="width: 85%"></div>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card" data-aos="flip-up" data-aos-delay="100">
                 <i class="fab fa-python"></i>
                 <h3>Python</h3>
                 <div class="skill-bar">
@@ -85,7 +110,7 @@
         <h2 class="section-title">My Projects</h2>
         <div class="project-grid">
             <!-- Project 1 -->
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="0">
                 <div class="project-image">
                     <!-- Project image or placeholder -->
                     <div class="project-placeholder"></div>
@@ -106,7 +131,7 @@
             </div>
             
             <!-- Project 2 -->
-            <div class="project-card">
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="project-image">
                     <div class="project-placeholder"></div>
                 </div>
