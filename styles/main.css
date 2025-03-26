@@ -578,3 +578,57 @@ footer {
         transform: translateX(0);
     }
 }
+
+.project-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+  
+  .github-info {
+    color: #555;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  
+  button {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  
+  a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+
+/* GitHub Badge */
+.github-badge {
+    background: #f6f8fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 8px 0;
+    font-size: 14px;
+  }
+  
+  /* Sync Button */
+  .sync-button {
+    background: #24292e;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .sync-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }

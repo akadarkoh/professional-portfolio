@@ -1,23 +1,38 @@
+// pages/index.js
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
+import { githubProjects } from '../data/projects'; // GitHub projects
 
 export async function getStaticProps() {
+  // Fetch Firebase projects at build time
   const projectsSnapshot = await getDocs(collection(db, "projects"));
-  const projects = projectsSnapshot.docs.map(doc => ({
+  const firestoreProjects = projectsSnapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
   }));
-  return { props: { projects } };
+  
+  return { 
+    props: { 
+      firestoreProjects,
+      githubProjects // Pass GitHub projects as prop
+    } 
+  };
 }
 
-export default function Home({ projects }) {
+export default function Home({ firestoreProjects, githubProjects }) {
   const [filter, setFilter] = useState("All");
+  const [allProjects, setAllProjects] = useState([]);
+
+  // Combine Firebase and GitHub projects on client side
+  useEffect(() => {
+    setAllProjects([...firestoreProjects, ...githubProjects]);
+  }, [firestoreProjects, githubProjects]);
 
   const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(p => p.tags.includes(filter));
+    ? allProjects 
+    : allProjects.filter(p => p.tags?.includes(filter)); // Optional chaining in case tags missing
 
   return (
     <div>
@@ -28,7 +43,7 @@ export default function Home({ projects }) {
       </select>
       
       {filteredProjects.map(project => (
-        <ProjectCard key={project.id} project={project} />
+        <ProjectCard key={project.id || project.title} project={project} />
       ))}
     </div>
   );
